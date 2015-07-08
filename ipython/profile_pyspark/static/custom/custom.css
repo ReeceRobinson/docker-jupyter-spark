@@ -1,0 +1,39 @@
+
+.rendered_html img {
+    display: inline-block;
+}
+
+.rendered_html h1 {
+    font-family: "Source Sans Pro",sans-serif;
+    font-weight: 200;
+    line-height: 36px;
+    font-size: 33px
+}
+
+.rendered_html h2,h2 .job-name {
+    font-family: "Source Sans Pro",sans-serif;
+    font-weight: 200;
+    line-height: 30px;
+    font-size: 27px
+}
+
+.rendered_html h3 {
+    font-family: "Source Sans Pro",sans-serif;
+    font-weight: 200;
+    line-height: 24px;
+    font-size: 22px
+}
+
+.rendered_html h4 {
+    font-family: "Source Sans Pro",sans-serif;
+    font-weight: 200;
+    line-height: 21px;
+    font-size: 18px
+}
+
+.rendered_html h5 {
+    font-family: "Source Sans Pro",sans-serif;
+    font-weight: 200;
+    line-height: 19px;
+    font-size: 16px
+}
