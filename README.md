@@ -1,8 +1,23 @@
-# docker-jupyter-spark
-A docker project for building a jupyter docker image with both pyspark and scala spark kernels.
+# Jupyter with Apache Spark, Scala and pySpark on Docker
 
-# Build
-docker build -t tracit/jupyter-spark-1.4.0 .
+This if for people who want a friendly ipython/Jupyter browser experience for working with Apache Spark.
 
-# Run
-docker run -d -p 8888:8888 --name jupyter -v /[your notebook path]:/notebooks tracit/jupyter-spark-1.4.0
+Included in this docker image are both pyspark and scala spark kernels so you can choose which is right for you.
+
+#Pull the image from Docker Repository
+
+`pull reecerobinson/docker-jupyter-spark`
+
+# Building the image
+
+`docker build -t [tag] .`
+
+# Running the image
+
+`docker run -d --name jupyter -p 8888:8888 -v /[your notebook path]:/notebooks reecerobinson/docker-jupyter-spark:latest`
+
+In your browser go to `http://[host]:8888` to view the notebook.
+
+# Versions
+
+ipython/Jupyter 3.2.0, Apache Spark 1.4.0, numpy 1.8.2, matplotlib 1.4.2
