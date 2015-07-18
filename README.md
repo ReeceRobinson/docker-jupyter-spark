@@ -20,4 +20,4 @@ In your browser go to `http://[host]:8888` to view the notebook.
 
 # Versions
 
-ipython/Jupyter 3.2.0, Apache Spark 1.4.0, numpy 1.8.2, matplotlib 1.4.2
+ipython/Jupyter 3.2.0, Apache Spark 1.4.1, numpy 1.8.2, matplotlib 1.4.2
