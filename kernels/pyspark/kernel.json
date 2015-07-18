@@ -1,5 +1,5 @@
 {
- "display_name": "pySpark (Spark 1.4.0)",
+ "display_name": "pySpark (Spark 1.4.1)",
  "language": "python",
  "argv": [
   "/usr/bin/python",

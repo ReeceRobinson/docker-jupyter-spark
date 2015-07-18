@@ -1,5 +1,5 @@
 {
-    "display_name": "Spark 1.4.0 (Scala 2.10.4)",
+    "display_name": "Spark 1.4.1 (Scala 2.10.4)",
     "language": "scala",
     "argv": [
         "/root/local/bin/sparkkernel",
