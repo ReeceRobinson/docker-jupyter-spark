@@ -15,8 +15,15 @@ RUN     apt-get update && \
         apt-get install -y python-pip && \
 		apt-get install -y libfreetype6 libfreetype6-dev zlib1g-dev && \
 		apt-get install -y python-matplotlib && \
+		apt-get install -y python-sklearn && \
+		apt-get install -y libopenblas-dev && \
+		apt-get install -y python-scipy && \
 		pip install py4j && \
 		pip install numpy && \
+		pip install redis && \
+		pip install pandas && \
+		pip install bokeh && \
+		pip install --upgrade scikit-learn && \
    		pip install "ipython[All]" && \ 
         apt-get clean
  
@@ -28,13 +35,16 @@ RUN		cd /tmp && python setup.py install && rm -rf /tmp/*
 RUN git clone https://github.com/ibm-et/spark-kernel.git
 RUN echo "deb http://dl.bintray.com/sbt/debian /" | tee -a /etc/apt/sources.list.d/sbt.list && \
 	apt-get update && \
-	apt-get install --force-yes -y sbt
+	apt-get install --force-yes -y sbt && \
+	apt-get clean
+
+
 RUN cd spark-kernel && sbt compile && sbt pack && rm -rf /root/.ivy2
 RUN (cd spark-kernel/kernel/target/pack && make install)
 
 RUN     mkdir /notebooks
 VOLUME ["/notebooks"]
-EXPOSE 8888
+EXPOSE 8888 4040
  
 # update boot script
 COPY bootstrap.sh /etc/bootstrap.sh
