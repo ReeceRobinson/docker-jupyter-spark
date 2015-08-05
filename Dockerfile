@@ -51,5 +51,7 @@ COPY bootstrap.sh /etc/bootstrap.sh
 RUN chown root.root /etc/bootstrap.sh
 RUN chmod 700 /etc/bootstrap.sh
 
-#CMD ["/bin/bash"]
+COPY hive-site.xml /usr/local/spark/conf/hive-site.xml
+RUN	curl -s https://jdbc.postgresql.org/download/postgresql-9.4-1201.jdbc41.jar -o /usr/local/spark/lib/postgresql-9.4-1201.jdbc41.jar 
+
 ENTRYPOINT ["/etc/bootstrap.sh"]
