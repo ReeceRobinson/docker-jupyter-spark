@@ -37,7 +37,8 @@ colors = ["#%02x%02x%02x" % (r,g,150) for r,g in zip(np.floor(50+2*x), np.floor(
 output_notebook()
 p = figure()
 p.circle(x,y,radius=radii, fill_color=colors,fill_alpha=0.6, line_color=None)
-show(p)```
+show(p)
+```
 
 # matplotlib Example from Scikit Learn
 
@@ -61,7 +62,8 @@ ax.plot([y.min(), y.max()], [y.min(), y.max()], 'k--', lw=4)
 ax.set_xlabel('Measured')
 ax.set_ylabel('Predicted')
 plt.show()
-pass```
+pass
+```
 
 # pyspark matplotlib example
 
