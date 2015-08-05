@@ -18,14 +18,15 @@ RUN     apt-get update && \
 		apt-get install -y python-sklearn && \
 		apt-get install -y libopenblas-dev && \
 		apt-get install -y python-scipy && \
-		pip install py4j && \
+		apt-get clean
+
+RUN		pip install py4j && \
 		pip install numpy && \
 		pip install redis && \
 		pip install pandas && \
 		pip install bokeh && \
 		pip install --upgrade scikit-learn && \
-   		pip install "ipython[All]" && \ 
-        apt-get clean
+		pip install "ipython[All]"
  
 COPY 	ipython /root/.ipython
 COPY    kernels /root/.ipython/kernels
