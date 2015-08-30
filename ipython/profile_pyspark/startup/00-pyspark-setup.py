@@ -1,6 +1,8 @@
 import os
 import sys
 
+os.environ["SPARK_EXECUTOR_MEMORY"] = '512m'
+os.environ["SPARK_DRIVER_MEMORY"] = '1g'
 os.environ["SPARK_CLASSPATH"] = '/usr/local/spark/lib/postgresql-9.4-1201.jdbc41.jar'
 spark_home = os.environ.get('SPARK_HOME', None)
 if not spark_home:
