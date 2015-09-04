@@ -10,7 +10,7 @@ ENV SPARK_HOME /usr/local/spark
 ENV PATH $PATH:$SPARK_HOME/bin
 
 RUN     apt-get update && \
-		apt-get install -y libc6 libc6-dev libc-dev udev && \
+		apt-get install -y libc6 libc6-dev libc-dev udev libncurses5-dev && \
         apt-get install -y python-dev && \
         apt-get install -y python-pip && \
 		apt-get install -y libfreetype6 libfreetype6-dev zlib1g-dev && \
