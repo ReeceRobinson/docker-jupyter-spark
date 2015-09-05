@@ -28,22 +28,21 @@ RUN		pip install py4j && \
 		pip install --upgrade scikit-learn && \
 		pip install "ipython[All]"
  
-COPY 	ipython /root/.ipython
-COPY    kernels /root/.ipython/kernels
-COPY	test_helper /tmp
-RUN		cd /tmp && python setup.py install && rm -rf /tmp/*
-
 RUN git clone https://github.com/ibm-et/spark-kernel.git
 RUN echo "deb http://dl.bintray.com/sbt/debian /" | tee -a /etc/apt/sources.list.d/sbt.list && \
 	apt-get update && \
 	apt-get install --force-yes -y sbt && \
 	apt-get clean
 
+COPY ipython /root/.ipython
+COPY kernels /root/.ipython/kernels
+COPY test_helper /tmp
+RUN	cd /tmp && python setup.py install && rm -rf /tmp/*
 
 RUN cd spark-kernel && sbt compile && sbt pack && rm -rf /root/.ivy2
 RUN (cd spark-kernel/kernel/target/pack && make install)
 
-RUN     mkdir /notebooks
+RUN	mkdir /notebooks
 VOLUME ["/notebooks"]
 EXPOSE 8888 4040
  
@@ -53,6 +52,11 @@ RUN chown root.root /etc/bootstrap.sh
 RUN chmod 700 /etc/bootstrap.sh
 
 COPY hive-site.xml /usr/local/spark/conf/hive-site.xml
-RUN	curl -s https://jdbc.postgresql.org/download/postgresql-9.4-1201.jdbc41.jar -o /usr/local/spark/lib/postgresql-9.4-1201.jdbc41.jar 
+COPY lib/* /usr/local/spark/lib/
+
+ENV SPARK_EXECUTOR_MEMORY 512m
+ENV SPARK_DRIVER_MEMORY 1g
+ENV SPARK_CLASSPATH $SPARK_CLASSPATH:/usr/local/spark/lib/postgresql-9.4-1201.jdbc41.jar:/usr/local/spark/lib/mysql-connector-java-5.1.36-bin.jar
+
 
 ENTRYPOINT ["/etc/bootstrap.sh"]
