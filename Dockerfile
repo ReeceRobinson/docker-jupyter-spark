@@ -1,10 +1,10 @@
 FROM java:8-jdk
 MAINTAINER docker@reecerobinson.co.nz
  
-ENV APACHE_SPARK_VERSION=1.4.1
+ENV APACHE_SPARK_VERSION=1.5.0
  
-RUN curl -s http://d3kbcqa49mib13.cloudfront.net/spark-1.4.1-bin-hadoop2.6.tgz | tar -xz -C /usr/local/
-RUN cd /usr/local && ln -s spark-1.4.1-bin-hadoop2.6 spark
+RUN curl -s http://d3kbcqa49mib13.cloudfront.net/spark-1.5.0-bin-hadoop2.6.tgz | tar -xz -C /usr/local/
+RUN cd /usr/local && ln -s spark-1.5.0-bin-hadoop2.6 spark
  
 ENV SPARK_HOME /usr/local/spark
 ENV PATH $PATH:$SPARK_HOME/bin
@@ -28,7 +28,7 @@ RUN		pip install py4j && \
 		pip install --upgrade scikit-learn && \
 		pip install "ipython[All]"
  
-RUN git clone https://github.com/ibm-et/spark-kernel.git
+RUN git clone -b FixSparkDependencies1.5.x https://github.com/ibm-et/spark-kernel.git
 RUN echo "deb http://dl.bintray.com/sbt/debian /" | tee -a /etc/apt/sources.list.d/sbt.list && \
 	apt-get update && \
 	apt-get install --force-yes -y sbt && \
