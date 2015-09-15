@@ -20,7 +20,7 @@ In your browser go to `http://[host]:8888` to view the notebook.
 
 # Versions
 
-ipython/Jupyter 3.2.1, Apache Spark 1.4.1, numpy 1.8.2, matplotlib 1.4.2, pandas 0.16.2, bokeh 0.9.2, scikit-learn 0.16.1, scipy 0.14.0
+ipython/Jupyter 4, Apache Spark 1.5.0, numpy 1.8.2, matplotlib 1.4.2, pandas 0.16.2, bokeh 0.9.2, scikit-learn 0.16.1, scipy 0.14.0
 
 # Bokeh Example
 To use Bokeh in a notebook you need to create the output for inline display. To achieve this you use the `output_notebook()` feature of the `bokeh.io` API.
