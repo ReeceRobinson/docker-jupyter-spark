@@ -4,7 +4,7 @@ This is for people who want a friendly ipython/Jupyter browser experience for wo
 
 Included in this docker image are both pyspark and scala spark kernels so you can choose which is right for you.
 
-#Pull the image from Docker Repository
+# Pull the image from Docker Repository
 
 `pull reecerobinson/docker-jupyter-spark`
 
