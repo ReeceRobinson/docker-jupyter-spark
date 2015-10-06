@@ -28,7 +28,7 @@ RUN		pip install py4j && \
 		pip install --upgrade scikit-learn && \
 		pip install "ipython[All]"
  
-RUN git clone -b FixSparkDependencies1.5.x https://github.com/ibm-et/spark-kernel.git
+RUN git clone https://github.com/ibm-et/spark-kernel.git
 RUN echo "deb http://dl.bintray.com/sbt/debian /" | tee -a /etc/apt/sources.list.d/sbt.list && \
 	apt-get update && \
 	apt-get install --force-yes -y sbt && \
